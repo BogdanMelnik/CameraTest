@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		84023BA91D61C9890096D0B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023BA81D61C9890096D0B7 /* AppDelegate.swift */; };
-		84023BAB1D61C9890096D0B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023BAA1D61C9890096D0B7 /* ViewController.swift */; };
+		84023BAB1D61C9890096D0B7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023BAA1D61C9890096D0B7 /* CameraViewController.swift */; };
 		84023BAE1D61C9890096D0B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84023BAC1D61C9890096D0B7 /* Main.storyboard */; };
 		84023BB01D61C9890096D0B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84023BAF1D61C9890096D0B7 /* Assets.xcassets */; };
 		84023BB31D61C9890096D0B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84023BB11D61C9890096D0B7 /* LaunchScreen.storyboard */; };
 		84023BBE1D61C9890096D0B7 /* CameraTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023BBD1D61C9890096D0B7 /* CameraTestTests.swift */; };
 		84023BC91D61C9890096D0B7 /* CameraTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023BC81D61C9890096D0B7 /* CameraTestUITests.swift */; };
+		84023BD71D61D0640096D0B7 /* VideoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023BD61D61D0640096D0B7 /* VideoDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		84023BA51D61C9890096D0B7 /* CameraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84023BA81D61C9890096D0B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84023BAA1D61C9890096D0B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84023BAA1D61C9890096D0B7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		84023BAD1D61C9890096D0B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84023BAF1D61C9890096D0B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84023BB21D61C9890096D0B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		84023BC41D61C9890096D0B7 /* CameraTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84023BC81D61C9890096D0B7 /* CameraTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTestUITests.swift; sourceTree = "<group>"; };
 		84023BCA1D61C9890096D0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84023BD61D61D0640096D0B7 /* VideoDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				84023BA81D61C9890096D0B7 /* AppDelegate.swift */,
-				84023BAA1D61C9890096D0B7 /* ViewController.swift */,
+				84023BAA1D61C9890096D0B7 /* CameraViewController.swift */,
 				84023BAC1D61C9890096D0B7 /* Main.storyboard */,
 				84023BAF1D61C9890096D0B7 /* Assets.xcassets */,
 				84023BB11D61C9890096D0B7 /* LaunchScreen.storyboard */,
 				84023BB41D61C9890096D0B7 /* Info.plist */,
+				84023BD61D61D0640096D0B7 /* VideoDelegate.swift */,
 			);
 			path = CameraTest;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					84023BA41D61C9890096D0B7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F3546JTKHT;
 					};
 					84023BB81D61C9890096D0B7 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -256,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84023BAB1D61C9890096D0B7 /* ViewController.swift in Sources */,
+				84023BD71D61D0640096D0B7 /* VideoDelegate.swift in Sources */,
+				84023BAB1D61C9890096D0B7 /* CameraViewController.swift in Sources */,
 				84023BA91D61C9890096D0B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -389,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,10 +406,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CameraTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Yohoho.CameraTest;
+				PRODUCT_BUNDLE_IDENTIFIER = YohohoCameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -412,10 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CameraTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Yohoho.CameraTest;
+				PRODUCT_BUNDLE_IDENTIFIER = YohohoCameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
