@@ -39,6 +39,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8K-Gg-rzb">
+                                <rect key="frame" x="261" y="460" width="78" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3C-tn-Faq">
                                 <rect key="frame" x="250" y="492" width="100" height="100"/>
                                 <constraints>
@@ -53,27 +59,37 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="v8K-Gg-rzb" secondAttribute="bottom" constant="8" id="3a4-zw-Teh"/>
+                            <constraint firstItem="v8K-Gg-rzb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Bf-Cx-vJq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iZZ-7f-SUG" secondAttribute="trailing" constant="-20" id="AaU-pb-ocl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q3C-tn-Faq" secondAttribute="trailing" constant="8" id="D7y-Oh-qNV"/>
                             <constraint firstItem="iZZ-7f-SUG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="H1p-29-rrX"/>
                             <constraint firstItem="Q3C-tn-Faq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KbF-Mb-4oP"/>
                             <constraint firstItem="iZZ-7f-SUG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="L0N-yT-3cQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q3C-tn-Faq" secondAttribute="bottom" constant="8" id="PHg-S7-2Kk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v8K-Gg-rzb" secondAttribute="trailing" constant="8" id="dKC-Mg-q5q"/>
+                            <constraint firstItem="Q3C-tn-Faq" firstAttribute="top" secondItem="v8K-Gg-rzb" secondAttribute="bottom" constant="8" id="mCA-JD-qmy"/>
                             <constraint firstItem="Q3C-tn-Faq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="t94-rm-HyA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iZZ-7f-SUG" secondAttribute="bottom" id="yRl-uk-UBk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="dKC-Mg-q5q"/>
+                                <exclude reference="3a4-zw-Teh"/>
                                 <exclude reference="D7y-Oh-qNV"/>
                                 <exclude reference="t94-rm-HyA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <exclude reference="9Bf-Cx-vJq"/>
+                                <include reference="dKC-Mg-q5q"/>
+                                <include reference="3a4-zw-Teh"/>
+                                <exclude reference="PHg-S7-2Kk"/>
                                 <include reference="D7y-Oh-qNV"/>
                                 <exclude reference="KbF-Mb-4oP"/>
+                                <exclude reference="mCA-JD-qmy"/>
                                 <include reference="t94-rm-HyA"/>
-                                <exclude reference="PHg-S7-2Kk"/>
                             </mask>
                         </variation>
                     </view>
@@ -95,6 +111,7 @@
                     <connections>
                         <outlet property="changeCameraButton" destination="UGg-CJ-LOu" id="1uJ-JA-ElU"/>
                         <outlet property="changeRecordModeButton" destination="Dqh-qx-VdB" id="19V-gQ-df0"/>
+                        <outlet property="counterLabel" destination="v8K-Gg-rzb" id="Mhs-9e-pto"/>
                         <outlet property="previewLayerView" destination="iZZ-7f-SUG" id="fzP-Jy-Tza"/>
                         <outlet property="recordButton" destination="Q3C-tn-Faq" id="Mju-fv-mgD"/>
                     </connections>

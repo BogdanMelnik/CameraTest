@@ -46,12 +46,25 @@ class CameraViewController: UIViewController {
     var isVideoRecording = false
     var videoFileOutput = AVCaptureMovieFileOutput()
     
-    
-    //Blur effect values
+    // Blur effect values
     var blurredEffectView: UIVisualEffectView?
+    
+    
+    // Timer values
+    @IBOutlet weak var counterLabel: UILabel!
+    
+    var timer: NSTimer!
+    var counter: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Timer vaules inint
+        self.timer = NSTimer.init()
+        self.counter = 0
+        
+        // White status bar
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
         // Make navigation bar transparent
         let navigationBar:UINavigationBar! =  self.navigationController?.navigationBar
@@ -59,15 +72,9 @@ class CameraViewController: UIViewController {
         navigationBar.shadowImage = UIImage()
         navigationBar.alpha = 0.0
         
-        //self.captureDevice.alpha = 0.3
-        
         self.initCaptureDevices()
         self.initOutput()
         self.beginCaptureSession()
-        
-        // White status bar
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-        
 
     }
 
@@ -327,11 +334,27 @@ class CameraViewController: UIViewController {
             self.videoFileOutput.startRecordingToOutputFileURL(outputFileUrl, recordingDelegate: videoDelegate)
             print("Video recording started!")
             print("Path: \(outputFileUrl)")
+            // Start timer
+            self.counterLabel.hidden = false
+            self.counterLabel.textColor = UIColor.redColor()
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(CameraViewController.updateCounter), userInfo: nil, repeats: true)
             return
         }
         
         if(self.isVideoRecording==true){
             self.videoFileOutput.stopRecording()
+            
+            // Stop timer
+            self.timer?.invalidate()
+            UIView.animateWithDuration(2.0, animations: {
+                self.counterLabel.alpha = 0.0
+                self.counterLabel.textColor = UIColor.whiteColor()
+                }, completion: { (bool) -> () in
+                    self.counterLabel.hidden = true
+                    self.counter = 0.0
+                    self.counterLabel.text = self.getNormalizedString(self.counter)
+            })
+            
             for output in self.captureSession.outputs {
                 self.captureSession.removeOutput(output as! AVCaptureOutput)
             }
@@ -346,7 +369,7 @@ class CameraViewController: UIViewController {
                     print("Temp video deleted!")
                 }
                 catch let error as NSError {
-                    print("Ooops! Something went wrong: \(error)")
+                    print("File deleting error: \(error)")
                 }
             }
             
@@ -354,6 +377,27 @@ class CameraViewController: UIViewController {
     
             return
         }
+    }
+    
+    func updateCounter() {
+        //self.counter = self.counter!+0.01
+        self.counter = self.counter!+1
+        self.counterLabel.text = self.getNormalizedString(self.counter)
+        if(Int(self.counter % 2) == 0) {
+            UIView.animateWithDuration(1.0, animations: {
+                self.counterLabel.alpha = 1.0
+            })
+        } else {
+            UIView.animateWithDuration(1.0, animations: {
+                self.counterLabel.alpha = 0.5
+            })
+        }
+    }
+    
+    func getNormalizedString(counter: Double) -> String {
+        let interval = NSTimeInterval.init(counter)
+        return interval.hoursMinutesSeconds
+
     }
 }
 
@@ -391,5 +435,39 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+}
+
+// Working wiht time representation
+extension NSTimeInterval {
+    
+    var minuteSecondMS: String {
+        return String(format:"%02d:%02d:%02d", self.minute, self.second, self.millisecond)
+    }
+    
+    var hoursMinutesSeconds: String {
+        return String(format:"%02d:%02d:%02d", self.hour, self.minute, self.second)
+    }
+    
+    var hour: Int {
+        return Int (self/3600)
+    }
+    
+    var minute: Int {
+        return Int(self/60.0 % 60)
+    }
+    var second: Int {
+        return Int(self % 60)
+    }
+    var millisecond: Int {
+        //return Int(self*1000 % 1000)
+        return Int(self*1000 % 100)
+    }
+}
+
+// Working wiht time representation
+extension Int {
+    var msToSeconds: Double {
+        return Double(self) / 1000
     }
 }
